@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.Drawing.Drawing2D;
 using System.Threading;
 using System.Globalization;
 using System.IO;
@@ -97,6 +98,9 @@ namespace RyskanovDiplom
             Bitmap bitmapGrid = new Bitmap(ScreenWidth, ScreenHeight);
             //Указываем рисовать графику из Bitmap
             gGrid = Graphics.FromImage(bitmapGrid);
+            gGrid.SmoothingMode = SmoothingMode.AntiAlias;
+
+
             //Устанавливаем задний фон из Bitmap  
             pictureBox1.BackgroundImage = bitmapGrid;
 
@@ -105,8 +109,9 @@ namespace RyskanovDiplom
             Bitmap bitmapFigur = new Bitmap(ScreenWidth, ScreenHeight);
             //Указываем рисовать графику из Bitmap
             gFigur = Graphics.FromImage(bitmapFigur);
-            //Устанавливаем задний фон из Bitmap  
-            pictureBox2.BackgroundImage = bitmapFigur;
+            gFigur.SmoothingMode = SmoothingMode.AntiAlias;
+            //Устанавливаем задний фон из Bitmap
+	    pictureBox2.BackgroundImage = bitmapFigur;
             //Это нужно для прозрачного фона
             pictureBox2.Parent = pictureBox1;
 
@@ -143,6 +148,8 @@ namespace RyskanovDiplom
             Bitmap bitmapCalc = new Bitmap(ScreenWidth, ScreenHeight);
             //Указываем рисовать графику из Bitmap
             gCalc = Graphics.FromImage(bitmapCalc);
+            gCalc.SmoothingMode = SmoothingMode.AntiAlias;
+
             //Устанавливаем задний фон из Bitmap  
             pictureBox3.BackgroundImage = bitmapCalc;
 
@@ -1391,7 +1398,7 @@ namespace RyskanovDiplom
             //Нарисуем все
             DrawAll();
         }
-
+		
         //****************************************
         // Рисует процесс расчета
         //****************************************
